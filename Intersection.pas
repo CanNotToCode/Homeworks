@@ -2,17 +2,17 @@ var
  Mas1,Mas2,Rez: array of real;
  i,j,k:integer;
 begin
- writeln('Введите длину 1 массива');
+ writeln('Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г«ГЁГ­Гі 1 Г¬Г Г±Г±ГЁГўГ ');
  read(i);
  SetLength(Mas1,i);
- writeln('Введите длину 2 массива');
+ writeln('Г‚ГўГҐГ¤ГЁГІГҐ Г¤Г«ГЁГ­Гі 2 Г¬Г Г±Г±ГЁГўГ ');
  read(j);
  SetLength(Mas2,j);
  SetLength(Rez,0);
- writeln('Введите 1 массив из ', i, ' элементов');
+ writeln('Г‚ГўГҐГ¤ГЁГІГҐ 1 Г¬Г Г±Г±ГЁГў ГЁГ§ ', i, ' ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў');
  for i:=0 to i-1 do
   read (Mas1[i]);
- writeln('Введите 2 массив из ', j, ' элементов');
+ writeln('Г‚ГўГҐГ¤ГЁГІГҐ 2 Г¬Г Г±Г±ГЁГў ГЁГ§ ', j, ' ГЅГ«ГҐГ¬ГҐГ­ГІГ®Гў');
  for j:=0 to j-1 do
   read (Mas2[j]);
 i:=0;
@@ -21,7 +21,7 @@ k:=-1;
 
 while i<=(length(Mas1)-1) do 
  begin
-  if (Mas1[i] <= Mas2[j]) then // индекс вне массива
+  if (Mas1[i] <= Mas2[j]) then // ГЁГ­Г¤ГҐГЄГ± ГўГ­ГҐ Г¬Г Г±Г±ГЁГўГ 
    begin 
     if (Mas1[i] = Mas2[j]) then
      begin
@@ -39,11 +39,11 @@ while i<=(length(Mas1)-1) do
    inc(i);
    end;
    
- if k = 0 then 
-  write('Нет общих')
+ if k = -1 then 
+  write('ГЌГҐГІ Г®ГЎГ№ГЁГµ')
   else
    begin
-    write('Пересечение массивов: ');
+    write('ГЏГҐГ°ГҐГ±ГҐГ·ГҐГ­ГЁГҐ Г¬Г Г±Г±ГЁГўГ®Гў: ');
     for k:=0 to (Length(Rez)-1) do
      write (Rez[k], ' ');
     end;
