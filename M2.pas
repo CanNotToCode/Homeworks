@@ -5,7 +5,7 @@ var
  i,j,min:integer;
 procedure Reading( var A:mass; i,j:integer);
   begin
-   write ('Введите исходную матрицу 3Х3');
+   write ('Enter matrix 3X3');
    writeln;
    for i:=1 to 3 do
     begin
@@ -23,7 +23,7 @@ begin
      for j:=1 to 3 do
       if A[i,j]<min then 
         min:=A[i,j];
-     writeln('Минимальный элемент ',i,' строки = ', min);   
+     writeln('Minimum element of  ',i,' line  = ', min);   
     end;
   end;
   
