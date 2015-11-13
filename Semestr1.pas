@@ -4,8 +4,8 @@ type
 var
   j, i,l: integer;
   h, b, x, a, sum, max: real;
-  Ar: array [1..3] of real; {массив, содержащий значения а}
-  Rez:  Mass;{двумерный массив, хранящий значения функции}
+  Ar: array [1..3] of real; 
+  Rez:  Mass;
   
 function F( var a, x: real;i,j:integer): real;
 begin
@@ -15,7 +15,7 @@ for i := 1 to 3 do
      begin
       if (a < 0) then
          begin
-          Rez[i,j] := ln(1 + a * a + x * x) - 1;{в зависимости от значения а находится значение функции по формуле:}
+          Rez[i,j] := ln(1 + a * a + x * x) - 1;
          end;
       if (a >= 0) then 
         begin
@@ -27,7 +27,7 @@ for i := 1 to 3 do
   writeln(Rez[i,j]);
 end;
 
-function Fi(Rez: Mass; i:integer): real;{функция, находяшая сумму модулей элементов i-ой строки }
+function Fi(Rez: Mass; i:integer): real;
 var k:real;
  j:integer; 
  begin
@@ -49,7 +49,7 @@ var c:real;
   for j := 2 to n do 
    begin;
    if ((Rez[i] [j]*Rez[i] [j])>(Rez[i] [j-1]*Rez[i] [j-1]))  then
-    c := (Rez[i] [j]*Rez[i] [j]) {функция, находящая максимальный квадрат элемента массива Rez}
+    c := (Rez[i] [j]*Rez[i] [j]) 
    else c := Rez[i] [j-1]*Rez[i] [j-1];
    end; 
   Ps:=c; 
@@ -57,11 +57,11 @@ var c:real;
  
   
 begin
- writeln('Введите значения h и b');
+ writeln('Enter h and b');
  read(h, b);
- writeln('Введите значения a1,a2,a3');
+ writeln('Enter a1,a2,a3');
  for i := 1 to 3 do
-    read(Ar[i]);{считываются значения а}
+    read(Ar[i]);
  for i := 1 to 3 do
   begin
     a := Ar[i];
@@ -73,10 +73,10 @@ begin
       end;
     end;
    end;
-    writeln('Введите номер а, для которого необходимо посчитать Fi и Ps ( 1<=a<=3)');
-    read(l);{ввод номера строки, в которой считаютcя значения Fi и  Ps}
+    writeln('Enter the line number for which you want to find Fi and Ps ( 1<=a<=3)');
+    read(l);
       sum := Fi (Rez,i);
       max := Ps (Rez,i);
-    writeln('Сумма модулей', ' ', sum);
-    write('Максимальный квадрат', ' ', max);
+    writeln('The sum of modules', ' ', sum);
+    write('Maximum square', ' ', max);
 end.
