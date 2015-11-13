@@ -6,7 +6,7 @@ var
  
 procedure Reading(var A:mass; i,k:integer);
  begin
-writeln('Введите последовательность из 10 чисел');
+writeln('Enter sequence of  10  elements');
  for i:=1 to k do
   read(A[i]);
  end; 
@@ -31,7 +31,7 @@ procedure Search(var A:mass; i,s,esc,max,m:integer);
     i:=m+1;
     s:=1;
    end;
-  write('Максимальная длина возрастающей подпоследовательности - ',max);
+  write('The maximum length of increasing subsequence - ',max);
   end;
 begin
  Reading(A,i,k);
