@@ -2,9 +2,9 @@ var
  k,i,m:integer;
  a:array[1..1000] of integer;
 begin
-writeln('Введите границу поиска простых чисел');
+writeln('Enter the border of search of prime numbers');
  read(k);
-write('Простые числа: ');
+write('Prime numbers: ');
   for i := 2 to (k+1) div 2 do 
   begin
    m := i*2;
