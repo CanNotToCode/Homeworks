@@ -5,15 +5,15 @@ A1:array [1..n] of real;
 A2:array [1..m] of real;
  i,j,k,l,index:integer;
  begin
- writeln('¬ведите массив из 7 элементов');
-for i:=1 to n do //с клавиатуры
+ writeln('Enter array of 7 elements');
+for i:=1 to n do 
  read (A1[i]); 
- writeln('¬ведите массив из 3 элементов');// считываютс€
-for j:=1 to m do// исходные
- read (A2[j]);// массивы
+ writeln('Enter array of 3 elements');
+for j:=1 to m do
+ read (A2[j]);
 for i:=1 to (n-m+1) do 
  begin
-  if A1[i] = A2[1] then //поиск первого элемента 2 массива в 1 массиве
+  if A1[i] = A2[1] then 
    begin 
     index := i;
     for k := index to (index+m-1) do
@@ -28,7 +28,7 @@ for i:=1 to (n-m+1) do
     end;
    if l = j then Break;
    end;
-   write('¬торой массив входит в первый с ',index,' элемента');
+   write('The second array is included in the first to ',index,' element');
  end.
     
  
