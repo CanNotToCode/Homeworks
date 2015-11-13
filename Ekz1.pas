@@ -1,22 +1,22 @@
 type 
  Mass = array of integer;
  var
- A1, B1, Rez: array of integer; //ј1 и ¬1 - массивы, в которые преобразуютс€ строки, Rez - массив, хран€щий значени€ суммы
+ A1, B1, Rez: array of integer; 
  A, B, P, R, J: string; 
  n, m, pr, s, f, h, v, x, g, d: integer;
-procedure Reading(Var A,B:string; var n,m:integer); //считывание
+procedure Reading(Var A,B:string; var n,m:integer); 
  begin
- writeln('¬ведите числа ');
+ writeln('Enter the numbers ');
   readln(A);
   read(B);
-  n := Length(A); // длина введенных строк
+  n := Length(A);
   m := Length(B);
   
   if (n >= m) then 
    begin
     P := A;
     R := B;
-    f := n; // f хранит длину наибольшей строки
+    f := n;
     h := m;
    end
   else
@@ -28,11 +28,11 @@ procedure Reading(Var A,B:string; var n,m:integer); //считывание
    end;
  end;   
  
- procedure Conversion (var A1,B1:array of integer; var f,pr,x,g,d,h:integer; var P, R:string); //преобразование
+ procedure Conversion (var A1,B1:array of integer; var f,pr,x,g,d,h:integer; var P, R:string); 
   begin
-   SetLength(A1,f);// устанавливаетс€ длина массивов, равна€ длине наибольшей строки
+   SetLength(A1,f);
    SetLength(B1,f);
-  for f:=1 to f do //длинна€ строка преобразуетс€ в массив
+  for f:=1 to f do
    begin
     Val(P[f],A1[x],pr);
     inc(x);
@@ -48,9 +48,9 @@ procedure Reading(Var A,B:string; var n,m:integer); //считывание
      end;
    end;
    
-  procedure Calculation (var Rez,A1,B1:array of integer; f,g,s,v:integer); //вычисление
+  procedure Calculation (var Rez,A1,B1:array of integer; f,g,s,v:integer); 
    begin
-    SetLength(Rez, f+1); //длина суммы не может быть больше длины наибольшего числа +1
+    SetLength(Rez, f+1); 
     g := f-1;
     s := (Length(Rez)-1);
     while (s >= 0) and (g >= 0) do
@@ -66,15 +66,15 @@ procedure Reading(Var A,B:string; var n,m:integer); //считывание
    end; 
   end;
    
-procedure Output(var Rez: mass; var J:string; n:integer); //вывод
+procedure Output(var Rez: mass; var J:string; n:integer); 
  begin  
-  if Rez[0]=0 then // из элементов массива, содержащего сумму, создаетс€ строка
+  if Rez[0]=0 then 
    for n:=1 to Length(Rez)-1 do
     J:=J+Rez[n]
   else  
    for n:=0 to Length(Rez)-1 do
     J:=J+Rez[n];
-    write( '—умма равна ', J);
+    write( 'Sum of numbers is ', J);
   end;
   begin
    Reading(A,B,n,m);
