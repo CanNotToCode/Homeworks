@@ -5,7 +5,7 @@ var
 procedure Readm( var A:mass);
  var i,j:integer;
   begin
-   write ('Введите исходную матрицу 3Х3');
+   write ('Enter the matrix 3X3');
    writeln;
    for i:=1 to 3 do
     begin
@@ -26,7 +26,7 @@ procedure Readm( var A:mass);
  procedure Printm( var B:mass);
   var i,j:integer;
    begin
-    write ('Транспонированная матрица: ');
+    write ('Transposed matrix: ');
     writeln;
    for i:=1 to 3 do
      begin
