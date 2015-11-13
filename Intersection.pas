@@ -2,17 +2,17 @@ var
  Mas1,Mas2,Rez: array of real;
  i,j,k:integer;
 begin
- writeln('Ââåäèòå äëèíó 1 ìàññèâà');
+ writeln('Enter the length of the first array ');
  read(i);
  SetLength(Mas1,i);
- writeln('Ââåäèòå äëèíó 2 ìàññèâà');
+ writeln('Enter the length of the second array');
  read(j);
  SetLength(Mas2,j);
  SetLength(Rez,0);
- writeln('Ââåäèòå 1 ìàññèâ èç ', i, ' ýëåìåíòîâ');
+ writeln('Enter the first array of ', i, ' elements');
  for i:=0 to i-1 do
   read (Mas1[i]);
- writeln('Ââåäèòå 2 ìàññèâ èç ', j, ' ýëåìåíòîâ');
+ writeln('Enter the second array of ', j, ' elements');
  for j:=0 to j-1 do
   read (Mas2[j]);
 i:=0;
@@ -21,7 +21,7 @@ k:=-1;
 
 while i<=(length(Mas1)-1) do 
  begin
-  if (Mas1[i] <= Mas2[j]) then // èíäåêñ âíå ìàññèâà
+  if (Mas1[i] <= Mas2[j]) then 
    begin 
     if (Mas1[i] = Mas2[j]) then
      begin
@@ -40,10 +40,10 @@ while i<=(length(Mas1)-1) do
    end;
    
  if k = -1 then 
-  write('Íåò îáùèõ')
+  write('No intersection')
   else
    begin
-    write('Ïåðåñå÷åíèå ìàññèâîâ: ');
+    write('Intersection of arrays: ');
     for k:=0 to (Length(Rez)-1) do
      write (Rez[k], ' ');
     end;
