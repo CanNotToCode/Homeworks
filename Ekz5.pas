@@ -27,7 +27,7 @@ var
         s:=s+A[i,k];
         m:=m+A[k,j];
        end;
-      if (s = m) then
+      if (s = m) and (A[i,j]>=1) and (A[i,j]<=3) then
        inc(c);
        s:=0;
        m:=0;
