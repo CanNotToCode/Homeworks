@@ -22,17 +22,17 @@ procedure Checking ( var A:matrix; i,j,m,n,b1,b2,c1,c2,k:integer);
     begin
      for m:=1 to 5 do
       begin
-      if A[i,j]>A[i,m] then
+      if A[i,j]>=A[i,m] then
        inc(c1);
-      if A[i,j]<A[i,m] then
+      if A[i,j]<=A[i,m] then
        inc(b1);
        
-      if A[i,j]<A[m,j] then
+      if A[i,j]<=A[m,j] then
        inc(c2);
-      if A[i,j]>A[m,j] then
+      if A[i,j]>=A[m,j] then
        inc(b2);
      end;
-     if ((c1=4) and(c2=4)) or ((b1=4) and(b2=4)) then
+     if ((c1=5) and(c2=5)) or ((b1=5) and(b2=5)) then
        begin
         inc(k);
         if k = 1 then
