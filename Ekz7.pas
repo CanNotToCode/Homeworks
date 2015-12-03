@@ -77,7 +77,7 @@ begin
     j := 0;
     for i := 0 to Length(space) - 2 do
     begin
-      A := copy(s, Space[i] + 1, space[i + 1] - space[i] - 1);//выход за границы
+      A := copy(s, Space[i] + 1, space[i + 1] - space[i] - 1);
       inc(j);
       FileArr[j] := Conversion(A);
     end;
