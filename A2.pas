@@ -4,14 +4,16 @@ var
  A:mass;
  i,k,s:integer;
  
-procedure Reading (var A:mass; i:integer);
+procedure Reading (var A:mass);
+ var  i:integer;
  begin
  writeln('Enter sequence of 18 elements');
  for i:=1 to 18 do
    read(A[i]);
   end; 
   
-procedure Period (var A: Mass; s,k,i:integer);
+procedure Period (A: Mass);
+ var s,k,i,l:integer;
  begin  
   k:=1;
  while k<=9 do
@@ -21,6 +23,7 @@ procedure Period (var A: Mass; s,k,i:integer);
     inc(s);
    if s = 18-k then
    begin
+     l:=1;
      writeln('Period is ', k);
      Break;
     end 
@@ -30,10 +33,12 @@ procedure Period (var A: Mass; s,k,i:integer);
       s:=0;
     end;
   end;
+  if l = 0 then 
+  write( 'Еhe sequence is not periodic');
  end;
 begin
-Reading(A,i);
-Period(A,s,k,i); 
+Reading(A);
+Period(A); 
 end.
     
     
