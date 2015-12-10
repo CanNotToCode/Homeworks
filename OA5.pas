@@ -1,52 +1,70 @@
-var
- Mas1,Mas2,Rez: array of real;
- i,j,k:integer;
-begin
- writeln('Enter the length of the first array ');
- read(i);
- SetLength(Mas1,i);
- writeln('Enter the length of the second array');
- read(j);
- SetLength(Mas2,j);
- SetLength(Rez,0);
- writeln('Enter the first array of ', i, ' elements');
- for i:=0 to i-1 do
-  read (Mas1[i]);
- writeln('Enter the second array of ', j, ' elements');
- for j:=0 to j-1 do
-  read (Mas2[j]);
-i:=0;
-j:=0;
-k:=-1;
+type
+  Mass = array of real;
 
-while i<=(length(Mas1)-1) do 
- begin
-  if (Mas1[i] <= Mas2[j]) then 
-   begin 
-    if (Mas1[i] = Mas2[j]) then
-     begin
-       inc(k);
-       SetLength(Rez,k+1);
-       Rez[k]:=Mas2[j];
-       inc(j);
+var
+  Mas1, Mas2, Rez: Mass;
+  n, m, k: integer;
+
+procedure Reading(var Mas1, Mas2: Mass; var n, m: integer);
+begin
+  writeln('Enter the length of the first array ');
+  read(n);
+  SetLength(Mas1, n);
+  writeln('Enter the length of the second array');
+  read(m);
+  SetLength(Mas2, m);
+  SetLength(Rez, 0);
+  writeln('Enter the first array of ', n, ' elements');
+  for n := 0 to n - 1 do
+    read(Mas1[n]);
+  writeln('Enter the second array of ', m, ' elements');
+  for m := 0 to m - 1 do
+    read(Mas2[m]);
+end;
+
+procedure Search(Mas1, Mas2: Mass; var Rez: Mass; var k: integer);
+var
+  i, j: integer;
+begin
+  i := 0;
+  j := 0;
+  k := -1;
+  
+  while (i <= (length(Mas1) - 1)) and (j <= Length(Mas2)) do 
+  begin
+    if (Mas1[i] <= Mas2[j]) then 
+    begin
+      if (Mas1[i] = Mas2[j]) then
+      begin
+        inc(k);
+        SetLength(Rez, k + 1);
+        Rez[k] := Mas2[j];
+        inc(j);
       end;
     end
-  else
+    else
     begin
-     inc(j); 
-     dec(i);
+      inc(j); 
+      dec(i);
     end;
-   inc(i);
-   end;
-   
- if k = -1 then 
-  write('No intersection')
-  else
-   begin
+    inc(i);
+  end;
+end;
+
+procedure Output(Rez: Mass; k: integer);
+begin
+  if k = -1 then 
+    write('No intersection')
+   else
+  begin
     write('Intersection of arrays: ');
-    for k:=0 to (Length(Rez)-1) do
-     write (Rez[k], ' ');
-    end;
- end.
-    
-  
+    for k := 0 to (Length(Rez) - 1) do
+      write(Rez[k], ' ');
+  end;
+end;
+
+begin
+  Reading(Mas1, Mas2, n, m);
+  Search(Mas1, Mas2, Rez, k);
+  Output(Rez, k);
+end.
