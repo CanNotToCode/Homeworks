@@ -6,6 +6,7 @@ var
   n, m, k: integer;
 
 procedure Reading(var Mas1, Mas2: Mass; var n, m: integer);
+var temp:Mass;
 begin
   writeln('Enter the length of the first array ');
   read(n);
@@ -20,6 +21,15 @@ begin
   writeln('Enter the second array of ', m, ' elements');
   for m := 0 to m - 1 do
     read(Mas2[m]);
+    
+    
+    if m>n then
+     begin
+      temp:=Mas1;
+      Mas1:=Mas2;
+      Mas2:=temp;
+     end;
+     
 end;
 
 procedure Search(Mas1, Mas2: Mass; var Rez: Mass; var k: integer);
@@ -30,7 +40,7 @@ begin
   j := 0;
   k := -1;
   
-  while (i <= (length(Mas1) - 1)) and (j <= Length(Mas2)) do 
+  while (i <= (length(Mas1) - 1)) and (j <= Length(Mas2)-1) do 
   begin
     if (Mas1[i] <= Mas2[j]) then 
     begin
