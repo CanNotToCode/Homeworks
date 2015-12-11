@@ -1,3 +1,4 @@
+//Дихотомический поиск
 type 
  Mass=array of integer;
 var 
