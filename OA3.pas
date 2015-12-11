@@ -1,3 +1,4 @@
+//Разность двух упорядоченных массивов
 type
   Mass = array of real;
 
@@ -8,12 +9,12 @@ var
 procedure Reading(var Mas1, Mas2: Mass; var n, m: integer);
 var temp:Mass;
 begin
-  writeln('Enter the length of the first array ');
+  writeln('Enter the length of the first (long) array ');
   read(n);
   SetLength(Mas1, n);
-  writeln('Enter the length of the second array');
+  writeln('Enter the length of the second (short) array');
   read(m);
-  SetLength(Mas2, m);
+  SetLength(Mas2, m+1);
   SetLength(Rez, 0);
   writeln('Enter the first array of ', n, ' elements');
   for n := 0 to n - 1 do
@@ -33,36 +34,25 @@ end;
 
 procedure Search(Mas1, Mas2: Mass; var Rez: Mass; var k: integer);
 var
-  i, j, g: integer;
+  i, j: integer;
 begin
   i := 0;
   j := 0;
   k := -1;
   
- while (i<=(length(Mas1)-1))and (j<= Length(Mas2)-1) do
+ while (i<=(Length( Mas1)-1))and (j<=(Length(Mas2)-1)) do
  begin
-  if (Mas1[i] = Mas2[j])  or (Mas1[i] <>  Mas2[j])then 
-   begin 
     if (Mas1[i] = Mas2[j]) then
-     begin
-       inc(g);
-       inc(j);
-      end;
-    end
+       inc(j)
+ 
   else
     begin
-     inc(j); 
-     dec(i);
+     inc(k);
+     SetLength(Rez,k+1);
+     Rez[k]:=Mas1[i];
     end;
-    if g=0 then begin
-    inc(k);
-   SetLength(Rez,k+1);
-   Rez[k]:=Mas1[i];
+    inc(i);
    end;
-   inc(i);
-   g:=0;
-   end;
-   
 end;
 
 procedure Output(Rez: Mass; k: integer);
