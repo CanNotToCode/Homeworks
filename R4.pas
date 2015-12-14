@@ -19,28 +19,28 @@ var
 begin
   Assign(F1, 'Points.dat');
   Rewrite(F1);
-  write('Amount of abiturients: ');
+  writeln('Amount of abiturients: ');
   readln(n);
   for i := 0 to n - 1 do
   begin
     writeln('Input abiturients № ', i + 1); 
-    write('FIO: ');
+    writeln('FIO:');
     readln(temp.FIO);
  
-    write('Medal(+ or -): ');
+    writeln('Medal(+ or -): ');
     readln(m);
   
     if m = '+' then
     temp.medal:=true
     else temp.medal:=false;
     
-    write('Scores: ');
+    writeln('Scores: ');
     for j:=1 to 3 do
-     read(temp.Scores[j]);
+     readln(temp.Scores[j]);
     Seek(F1, i);
     write(F1, temp);
   end;
-  writeln('Passing score: ');
+  writeln('Passing score:');
   read(ball);
   close(F1);
 end;
