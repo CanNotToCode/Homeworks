@@ -1,3 +1,4 @@
+//Преобразование в число
 type
   arr = array of char;
 var
