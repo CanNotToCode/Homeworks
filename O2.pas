@@ -1,55 +1,63 @@
-type 
- Mass=array of real;
-var
- Mas1,Mas2: Mass;
- n,m:integer;
- 
-procedure Reading(var Mas1,Mas2:mass; var n,m:integer);
-var i:integer;
- begin
-  writeln('Enter the length of the first array ');
-  read(n);
-  SetLength(Mas1,n);
-  writeln('Enter the length of the second array');
-  read(m);
-  SetLength(Mas2,m);
-  writeln('Enter the first array of ', n, ' elements');
-  for i:=0 to n-1 do
-   read (Mas1[i]);
-  writeln('Enter the second array of ', m, ' elements');
-  for i:=0 to m-1 do
-   read (Mas2[i]);
- end;
+//Сортировка сведением к нахождению максимума
+type
+  Mass = array of real;
 
-function IsIncluded(Mas1,Mas2:mass):boolean;
- var k,n,m,i,j:integer;
- begin
-  n:=length(Mas1);
-  m:=length(Mas2);
- while (i<=n-1) and (j<= m-1) do
- begin
-  if (Mas1[i] <= Mas2[j]) then 
-   begin 
-    if (Mas1[i] = Mas2[j]) then
-     begin
-       inc(k);
-       inc(j);
-      end;
-    end
-  else
-    begin
-     inc(j); 
-     dec(i);
-    end;
-   inc(i);
-   end;
-  IsIncluded:=(k=m);
-  end;
-  BEGIN
-   Reading(Mas1,Mas2, n,m);
-   if IsIncluded(Mas1,Mas2) then
-    write('Included')
-   else write('Not included');
-  END.
+var
+  Numbers, SortedNumbers: Mass;
+  n: integer;
+
+procedure Reading(var Numbers: Mass; var n: integer);
+var
+  i: integer;
+begin
+  writeln('Input length of array');
+  read(n);
+  SetLength(Numbers, n);
+  writeln('Input array');
+  for i := 0 to n - 1 do
+    read(Numbers[i]);
+end;
+
+procedure FindMax(var Numbers: Mass; var SortedNumbers: Mass; n: integer );
+var
+  i, k, j, maxindex: integer;
+  max, min: real;
+begin
+  for i := 0 to n - 1 do
+    if Numbers[i] < min then
+      min := Numbers[i]; 
   
- 
+  SetLength(SortedNumbers, n);
+  j := n - 1;
+  for i := n - 1 downto 0 do
+  begin
+    max := min;
+    for k := 0 to n - 1 do
+    begin
+      if Numbers[k] > max then
+      begin
+        max := Numbers[k];
+        maxindex := k;
+      end;
+    end;
+    SortedNumbers[j] := max;
+    Numbers[maxindex] := min;
+    dec(j);
+    max := min;
+  end;
+end;
+
+procedure Output(SortedNumbers: Mass; n: integer);
+var
+  i: integer;
+begin
+  write('Sorted array: ');
+  for i := 0 to n - 1 do
+    write(SortedNumbers[i], ' ');
+end;
+
+begin
+  Reading(Numbers, n);
+  FindMax(Numbers, SortedNumbers, n);
+  Output(SortedNumbers, n);
+end.
