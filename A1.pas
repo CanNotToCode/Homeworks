@@ -55,14 +55,14 @@ procedure Calculation(var Rez, A1, B1: array of integer; n, m: integer);
 var
   j, k, v: integer;
    begin
-    SetLength(Rez, n + 1); 
+    SetLength(Rez, n + 1); //кол-во разрядов при сложении не может увеличиться больше, чем на 1
     j := n - 1;
     k := n;
   
     while (k >= 0) and (j >= 0) do    
       begin
        Rez[k] := Rez[k] + (A1[j] + B1[j]) mod 10; //записывается сумма цифр одного разряда
-       v := (A1[j] + B1[j]) div 10;
+       v := (A1[j] + B1[j]) div 10; // цифра, переносящаяся в следующий разряд
        if j > 0 then
         A1[j - 1] := A1[j - 1] + v
        else
@@ -76,10 +76,10 @@ procedure Output(Rez: mass; var J: string; n: integer);
  begin
   if Rez[0] = 0 then 
    for n := 1 to Length(Rez) - 1 do
-    Rezlt := Rezlt + Rez[n]
+    Rezlt := Rezlt + Rez[n] // из массива цифр суммы собирается строка, незначащий ноль не включается 
   else  
    for n := 0 to Length(Rez) - 1 do
-    J := J + Rez[n];
+    Rezlt := Rezlt + Rez[n]; 
    write('Sum of numbers is ', Rezlt);
   end;
   
