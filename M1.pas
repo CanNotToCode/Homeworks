@@ -1,3 +1,4 @@
+//Поиск седловых точек матрицы
 type
  Matrix = array [1..5,1..5] of real;
 var i,j,m,n,b1,b2,c1,c2,k:integer;
