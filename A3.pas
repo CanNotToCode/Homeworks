@@ -1,29 +1,36 @@
-const k=10;
-type Mass = array [1..k] of integer;
+//Длина возрастающей подпоследовательности
+type 
+ Mass = array of integer;
 var 
  A:mass;
- i,max,s,m,esc:integer;
+ max,n:integer;
  
-procedure Reading(var A:mass; i,k:integer);
+procedure Reading(var A:mass;  var n:integer);
+ var i:integer;
  begin
-writeln('Enter sequence of  10  elements');
- for i:=1 to k do
+ writeln('Input length of sequence ');
+ read(n);
+ Setlength(A,n);
+writeln('Enter sequence of ', n, ' elements');
+ for i:=0 to n-1 do
   read(A[i]);
  end; 
  
-procedure Search(var A:mass; i,s,esc,max,m:integer);
+procedure Search(A:mass; n:integer; var max:integer);
+ var i,s,m:integer;
+     k:boolean;
  begin
-  i:=1;
+  i:=0;
   s:=1;
-  while (i<=9) do
+  while (i<=n-2) do
    begin
-    while (A[i]<A[i+1]) and (esc<>1) do
+    while (A[i]<A[i+1]) and (not k)  do
      begin
       inc(s);
-      if i<9 then
+      if i<n-2 then
       inc(i)
        else 
-       esc:=1;
+       k:=true; 
      end;
     if s>max then 
      max:=s;
@@ -31,9 +38,17 @@ procedure Search(var A:mass; i,s,esc,max,m:integer);
     i:=m+1;
     s:=1;
    end;
-  write('The maximum length of increasing subsequence - ',max);
+  end; 
+ 
+ procedure Output(max:integer);
+  begin
+   if max = 0 then 
+    writeln ('Sequence doesn`t contain increasing subsequence')
+   else
+    writeln('The maximum length of increasing subsequence - ',max);
   end;
 begin
- Reading(A,i,k);
- Search(A,i,s,esc,max,m);  
+ Reading(A,n);
+ Search(A,n,max);  
+ Output(max);
 end.
