@@ -1,9 +1,11 @@
+//Поиск минимального элемента строки матрицы
 type
  Mass = array [1..3,1..3] of real;
 var
  A:mass;
- i,j,min:integer;
-procedure Reading( var A:mass; i,j:integer);
+
+procedure Reading( var A:mass);
+ var i,j:integer;
   begin
    write ('Enter matrix 3X3');
    writeln;
@@ -15,21 +17,28 @@ procedure Reading( var A:mass; i,j:integer);
     writeln; 
    end;
    
-procedure Search (var A:mass; i,j:integer; min:real);
+procedure Output(k:integer; min:real);
+begin
+  writeln('Minimum element of  ',k,' line  = ', min);  
+end;
+
+procedure Search (var A:mass);
+var i,j:integer;
+    min:real;
 begin
   for i:=1 to 3 do
     begin
     min:=A[i,1];
      for j:=1 to 3 do
       if A[i,j]<min then 
-        min:=A[i,j];
-     writeln('Minimum element of  ',i,' line  = ', min);   
+        min:=A[i,j]; 
+        Output(i,min);
     end;
+    
   end;
   
  begin;
-  Reading(A,i,j);
-  Search( A,i,j,min);
-
+  Reading(A);
+  Search(A);
  end.
     
