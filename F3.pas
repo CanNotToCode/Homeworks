@@ -1,3 +1,4 @@
+//Файл записей чисел из их массива
 type
   Mass = array of integer;
 
