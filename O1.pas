@@ -1,3 +1,4 @@
+//Сортировка пузырьком
 type
   Mass = array of real;
  var 
