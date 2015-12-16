@@ -1,8 +1,9 @@
+//Транспонирование матрицы
 type
  Mass = array [1..3,1..3] of real;
 var
  B,A:mass;
-procedure Readm( var A:mass);
+procedure Reading( var A:mass);
  var i,j:integer;
   begin
    write ('Enter the matrix 3X3');
@@ -23,7 +24,7 @@ procedure Readm( var A:mass);
     B[i,j]:=A[j,i];
    end;
    
- procedure Printm( var B:mass);
+ procedure Output( var B:mass);
   var i,j:integer;
    begin
     write ('Transposed matrix: ');
@@ -36,8 +37,8 @@ procedure Readm( var A:mass);
      end;
    end;
  begin;
-  Readm(A);
+  Reading(A);
   Transp(A,B);
-  Printm(B);
+  Output(B);
  end.
     
