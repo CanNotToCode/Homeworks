@@ -1,3 +1,4 @@
+//Сортировка вставками
 type
   Mass = array of real;
 
