@@ -33,7 +33,7 @@ end;
 
 procedure Output;
 begin
-  Writeln('Input A to Add,  D to Delete,  C to Check  or E to Finish');
+  Writeln('Input A to Add,  D to Delete,  C to Check  or F to Finish');
 end;
 
 
@@ -65,7 +65,7 @@ end;
 begin
   Output;
   read(Com);
-  while not (Com = 'E')  do
+  while not (Com = 'F')  do
   begin
     Verification(Com, Mult, a, b, c, k);
   end;
