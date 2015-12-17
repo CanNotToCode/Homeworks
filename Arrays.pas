@@ -37,9 +37,9 @@ procedure Reading (var A1,A2:Mass; var n,m:integer);
   if A1[i] = A2[1] then 
    begin 
     index := i;
-    for k := index to (index+m) do
+    for k := index to (index+m-1) do
      begin
-      for j:=1 to m+1 do
+      for j:=1 to m-1 do
         begin
          if A1[k] = A2[j] then
            inc(l)
@@ -56,5 +56,3 @@ procedure Reading (var A1,A2:Mass; var n,m:integer);
   Reading(A1,A2,n,m);
   Search(A1,A2,n,m,index);
  end.
-    
- 
