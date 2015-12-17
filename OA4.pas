@@ -1,72 +1,71 @@
 //Объединение упорядоченных массивов
-
 type
   Mass = array of real;
 
 var
-  i, n1, n2, n3: integer; 
-  M1, M2, M3: Mass;
+  n, m, f: integer; 
+  M1, M2, Rez: Mass;
 
-procedure Reading(var n1,n2:integer; var M1,M2:Mass);
- var i:integer;
- begin
- write('Input length of the first array: ');
- readln(n1);
-  SetLength(M1,n1);
-  writeln('Input the first array: ');
-  for i := 0 to n1-1 do 
-    readln(M1[i]); 
-  write('Input length of the second array: ');
-  readln(n2); 
-  SetLength(M2,n2);
-  writeln('Input the second array: ');
-  for i := 0 to n2-1 do 
-    read(M2[i]);
-  end;
-procedure Merger(n1: integer; M1: Mass; n2: integer; M2: Mass; var n3: integer; var M3: Mass);
+procedure Reading(var n, m: integer; var M1, M2: Mass);
 var
   i, j: integer;
 begin
-  n3 := -1; 
-  j := 0; 
-  i := 0;
-  while (i <= n1-1) and (j <= n2-1) do 
-  begin
-    if M2[j] < M1[i] then
-    begin
-      inc(n3); 
-      SetLength(M3,n3+1);
-      M3[n3] := M2[j]; 
-    end;
-    if M2[j] > M1[i] then
-    begin
-      inc(n3); 
-      SetLength(M3,n3+1);
-      M3[n3] := M1[i]; 
-    end;
-    if M2[j] = M1[i] then 
-    begin
-      inc(n3); 
-      SetLength(M3,n3+1);
-      M3[n3] := M1[i]; 
-    end;
-    if (j <= n2)  then 
-    begin
-      inc(n3);
-      SetLength(M3,n3+1);
-      M3[n3] := M2[j]; 
-      SetLength(M3,n3+1);
-    end; 
-    inc(j);
-    inc(i);
-    
-  end;
+  writeln('Input length of the first array');
+  readln(n);
+  Setlength(M1, n + 1);
+  writeln('Input the first array');
+  for i := 1 to n do
+    read(M1[i]);
+  
+  writeln('Input length of the second array');
+  readln(m);
+  Setlength(M2, m + 1);
+  writeln(' Input the second array');
+  for j := 1 to m do
+    read(M2[j]);
 end;
 
-begin 
-  Reading(n1,n2,M1,M2);
-  Merger(n1, M1, n2, M2, n3, M3); 
+procedure Merger(M1, M2: Mass; n, m: integer; var Rez: Mass; var f: integer);
+var
+  i, k: integer;
+begin
+  SetLength(Rez, m + n + 1);
+  f := 0; 
+  k := 1; 
+  for i := 1 to n do 
+  begin
+    while (M2[k] < M1[i]) and (k < m) do 
+    begin
+      inc(f); 
+      Rez[f] := M2[k]; 
+      inc(k); 
+    end; 
+    if M2[k] = M1[i] then 
+      inc(k); 
+    inc(f); 
+    Rez[f] := M1[i]; 
+  end; 
+  while (k <= m) do 
+  begin
+    inc(f); 
+    Rez[f] := M2[k]; 
+    inc(k); 
+  end; 
+end;
+
+procedure Output(Rez: Mass; f: integer);
+var
+  i: integer;
+begin
   write('Result: ');
-  for i := 0 to n3 do 
-    write(M3[i], ' '); 
+  for i := 1 to f do 
+    write(Rez[i], ' '); 
+end;
+
+begin
+  Reading(n, m, M1, M2);
+  Merger(M1, M2, n, m, Rez, f); 
+  Output(REz, f);
 end.
+
+  
