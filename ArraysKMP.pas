@@ -61,6 +61,6 @@ end;
 
 begin
   Reading(n, m, M1, M2);
-  PrefixSearch(m, M2, s, Prefixarr); 
+  PrefixSearch(m, M2, s, PrefixArr); 
   SearchIndex(n, s, M1, M2);
 end.
