@@ -8,8 +8,12 @@ type
 
 var
   F1: file of abiturient;
-  n: integer;
   ball: integer;
+  
+procedure Output(FIO:string; sum:integer);
+begin
+ writeln(FIO, ' ' , sum);
+end;  
 
 procedure Selection(F1: file of abiturient; ball:integer);
 var
@@ -17,7 +21,7 @@ var
   sum,i,k:integer;
 begin
   Reset(F1);
-  Writeln('Enrolled:');
+  Writeln('Зачислены:');
   while not Eof(F1) do
   begin
     read(F1, temp);
@@ -31,7 +35,7 @@ begin
      end;
     
     if (sum >= ball) or ((temp.medal) and (k>0)) then
-      writeln(temp.FIO, ' ', sum);
+      Output(temp.FIO,sum);
   end;
 end;
  
@@ -39,6 +43,6 @@ end;
 begin
   writeln('Введите проходной балл');
   read(ball);
-  Assign(F1, 'TestForR4.dat');
+  Assign(F1, 'DataForR4.dat');
   Selection(F1, ball);
 end.
